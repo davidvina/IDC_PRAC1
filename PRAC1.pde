@@ -1,41 +1,46 @@
 /**
- * 
+ *
  * @file descripción corta de la tarea del módulo
  * @author David Vinagre Cerezo
- * @date 
+ * @date
  * @brief descripción corta de la tarea del módulo
  */
 
 
-/* http://www.disca.upv.es/aperles/mola_doxygen/mola_doxygen.html
-/* http://booleanbite.com/web/doxygen-una-herramienta-para-documentar-codigo/
+// http://www.disca.upv.es/aperles/mola_doxygen/mola_doxygen.html
+// http://booleanbite.com/web/doxygen-una-herramienta-para-documentar-codigo/
 
-/** 
+/**
  *  Declaració d'objectes i variables utilitzades
  */
 
-Missatge textMostrar; //
-Fons fons; //
-Contador contadorTransicio; //
+Missatge textMostrar;       // objecte que mostra un text
+Fons fons;                  // objecte que dibuixa el fons
+Contador contadorTransicio; // contador permet fer la transició
 
 
-/** 
- *  Declaració d'objectes i variables utilitzades
+/**
+ *  @brief funció de configuració del context
+ *
+ *  The setup() function is run once, when the program starts. It's used to define
+ *  initial enviroment properties such as screen size and to load media such as images
+ *  and fonts as the program starts. There can only be one setup() function for each
+ *  program and it shouldn't be called again after its initial execution.
  */
 
 void setup(){
-  size(400,400);
-  surface.setResizable(true);
-  frameRate(25);
+  size(400,400);              // mida de pantalla
+  surface.setResizable(true); // permet redimensionar la pantalla
+  frameRate(25);              // frames per segon
 
-  // Inicializamos objetos
+  // Inicialització d'objectes
   textMostrar = new Missatge("Hola mon!", color(#D81AFF), color(#FFEA00));
   fons = new Fons(color(#000000), color(#FFEA00), color(#D81AFF));
   contadorTransicio = new Contador(200);
 }
 
 
-/** 
+/**
  *  Declaració d'objectes i variables utilitzades
  */
 
@@ -82,14 +87,14 @@ class TransicioColor{
 
     // lerpColor(c1, c2, amt) calcula un color o colors entre dos colors en un increment específic.
     colorActual = lerpColor(colorInicial, colorFinal, transcioColor);
-  
+
   }
 
 }
 
 
 /*
-  extends permet a una nova classe heretar els mètodes i propietats 
+  extends permet a una nova classe heretar els mètodes i propietats
   (variablesi constans) a partir d'una classe exitent
 
   la clase Missatge hereda els métodes i propietats de la clase TransicioColor
