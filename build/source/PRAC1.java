@@ -34,7 +34,6 @@ public void setup(){
 
 
 public void draw(){
-  background (0);
 
   fons.setColor(contadorTransicio.getFraccion());
   fons.display();
@@ -102,6 +101,7 @@ class Fons extends TransicioColor{
   // getter
   // mostra el text
   public void display(){
+    background(colorFons);
     fill(colorActual);
     rect(20, 20, width-40, height-40, 30);
   }
@@ -109,42 +109,42 @@ class Fons extends TransicioColor{
 
 
 class Contador{
+  // Quantitat de
   int numFrames;
 
   float frameActual = 0.0f;
-
-  float fraccion = 0.0f;
 
   boolean state = true;
 
   // constructor
   Contador(int nF){
-    inicialFrame = iF;
     numFrames = nF;
   }
 
   public void updateContador(){
 
+    // depenent la variable estat
+    // conta de 0 a numFrames o de NumFrames a 0
     if (state){
       frameActual++;
     } else {
       frameActual--;
     }
 
+    // cada vegada que els frames totals s\u00f3n divisibles per el
     if(frameCount % numFrames == 0){
       state = !state;
     }
 
-    fraccion = frameActual / numFrames;
   }
 
   public float getFraccion(){
-    return fraccion;
+    return frameActual / PApplet.parseFloat(numFrames);
   }
 
 
 }
-  public void settings() {  size(400,400, P2D); }
+  public void settings() {  size(400,400); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "PRAC1" };
     if (passedArgs != null) {
