@@ -18,7 +18,6 @@ void setup(){
 
 
 void draw(){
-  background (0);
 
   fons.setColor(contadorTransicio.getFraccion());
   fons.display();
